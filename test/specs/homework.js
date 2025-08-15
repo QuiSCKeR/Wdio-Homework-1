@@ -1,44 +1,45 @@
+//Homework 3
+describe('Test cases', () => {
 
-//Homework 2
-describe('Webdriverio pages', () => {
-    it('should open API', async () => {
-        await browser.url('https://webdriver.io');
-        await $('nav a[href="/docs/api"]').click();
+    it('should display Sign up for GitHub button', async () => {
+        await browser.url('https://github.com');
+        const signUpButton = await $('a[href^="/signup"]');
+        await expect(signUpButton).toBeDisplayed();
+    });
+
+    it('should navigate to Sign up page', async () => {
+        await browser.url('https://github.com');
+        const signUpButton = await $('a[href^="/signup"]');
+        await signUpButton.click();
         await browser.pause(1000);
+        const url = await browser.getUrl();
+        expect(url).toContain('/signup');
     });
 
-    it('should scroll to element API references', async () => {
-        const getStartedLink = await $('.footer__link-item[href="/docs/api"]');
-        await getStartedLink.scrollIntoView();
-        await browser.pause(2000);
+    it('should search repositories with "car"', async () => {
+    await browser.url('https://github.com');
+    const openSearchBtn = await $('button[aria-label="Search or jump to…"]');
+    await openSearchBtn.click();
+    const searchInput = await $('input[data-target="query-builder.input"]');
+    await searchInput.setValue('car');
+    await browser.keys('Enter');
+    await browser.pause(2000);
+    const url = await browser.getUrl();
+    expect(url).toContain('q=car');
+});
+
+    it('should open Pricing page', async () => {
+        await browser.url('https://github.com');
+        const PricingButton = await $('a[href="https://github.com/pricing"]');
+        await PricingButton.click();
+        await browser.pause(1000);
+        const url = await browser.getUrl();
     });
 
-    it('should show if api is displayed', async () => {
-        const apiDisplay = await $('.footer__link-item[href="/docs/api"]');
-
-        await apiDisplay.isDisplayed();
-        await browser.pause(2000);
+    it('should display GitHub logo', async () => {
+        await browser.url('https://github.com');
+        const logo = await $('a[href="/"] svg');
+        await expect(logo).toBeDisplayed();
     });
 
-    it('should show if protocol commands is clickable and displayed', async () => {
-        const protocol = await $('.pagination-nav__link--next[href="/docs/api/protocols"]');
-        await protocol.isClickable();
-        await protocol.isDisplayed();
-        await browser.pause(2000);
-    });
-
-    it('should get html', async () => {
-        const outerHTML = $('.pagination-nav__link--next[href="/docs/api/protocols"]').getHTML()
-        console.log('Outer HTML: ' + outerHTML)
-
-        const innerHTML = $('.pagination-nav__link--next[href="/docs/api/protocols"]').getHTML(false)
-        console.log('Inner HTML: ' + innerHTML)
-    });
-
-    it('should wait until "WebDriver Protocol" is visible', async () => {
-        await $('.pagination-nav__link--next[href="/docs/api/protocols"]').click();
-        await browser.waitUntil(async () => {
-            return $('#webdriver-protocol').isDisplayed();
-        }, 5000, 'Title is not displayed');
-    });
 });

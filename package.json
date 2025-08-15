@@ -11,6 +11,7 @@
     "wdio": "wdio run ./wdio.conf.js"
   },
   "dependencies": {
+    "chai": "^5.2.1",
     "chromedriver": "^138.0.5"
   }
 }
