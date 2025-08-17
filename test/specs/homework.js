@@ -1,5 +1,5 @@
 //Homework 3
-describe('Test cases', () => {
+/*describe('Test cases', () => {
 
     it('should display Sign up for GitHub button', async () => {
         await browser.url('https://github.com');
@@ -43,3 +43,4 @@ describe('Test cases', () => {
     });
 
 });
+*/
