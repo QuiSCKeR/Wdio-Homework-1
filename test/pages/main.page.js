@@ -1,4 +1,4 @@
-class MainPage {
+/*class MainPage {
 
     get forumBtn() { return $('a[href="https://dou.ua/forums/"]'); }
     get bandBtn() { return $('a[href="https://dou.ua/lenta/"]'); }
@@ -23,4 +23,4 @@ class MainPage {
     }
 }
 
-export default new MainPage();
+export default new MainPage();*/

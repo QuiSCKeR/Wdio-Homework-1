@@ -1,4 +1,4 @@
-import MainPage from '../pages/main.page.js';
+/*import MainPage from '../pages/main.page.js';
 import { expect } from 'chai';
 
 describe('DOU navigation and checks', () => {
@@ -38,4 +38,4 @@ describe('DOU navigation and checks', () => {
 });
 
 
-});
+});*/

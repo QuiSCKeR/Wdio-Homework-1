@@ -1,4 +1,4 @@
-class GameDevPage {
+/*class GameDevPage {
 
     get companyGameDevsRateLink() { return $('//*[text()="Рейтинг найбільших геймдев-компаній"]') }
     get topGamesRateLink() { return $('//*[text()="Топ ігор місяця"]') }
@@ -7,4 +7,4 @@ class GameDevPage {
         await this.topGamesRateLink.click()
 }
 }
-export default new GameDevPage
+export default new GameDevPage*/
